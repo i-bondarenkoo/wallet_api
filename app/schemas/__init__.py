@@ -3,4 +3,6 @@ from app.schemas.wallet import (
     ResponseWalletSchema,
     ResponseWalletIds,
     ResponseBalanceForWalletSchema,
+    WalletOperationSchema,
+    OperationType,
 )

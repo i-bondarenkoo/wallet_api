@@ -1,6 +1,7 @@
 from pydantic import BaseModel, ConfigDict
 from datetime import datetime
 import uuid
+from enum import Enum
 
 
 class CreateWalletSchema(BaseModel):
@@ -21,3 +22,13 @@ class ResponseWalletSchema(CreateWalletSchema):
 class ResponseWalletIds(BaseModel):
     id: uuid.UUID
     model_config = ConfigDict(from_attributes=True)
+
+
+class OperationType(Enum, str):
+    DEPOSIT = "DEPOSIT"
+    WITHDRAW = "WITHDRAW"
+
+
+class WalletOperationSchema(BaseModel):
+    operation_type: OperationType
+    amount: int
