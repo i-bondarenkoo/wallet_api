@@ -9,9 +9,9 @@ class ServerRunCfg(BaseModel):
 
 
 class Settings(BaseSettings):
-    db_url: str = ""
+    db_url: str = "postgresql+asyncpg://user:password@localhost:5439/demo_wallet"
     db_echo: bool = True
-    db_echo: bool = False
+    # db_echo: bool = False
     server_run_cfg: ServerRunCfg = ServerRunCfg()
 
 
