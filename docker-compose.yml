@@ -1,0 +1,13 @@
+services:
+  pg:
+    image: postgres
+    environment:
+      POSTGRES_DB: demo_wallet
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      PGDATA: /var/lib/postgresql/data
+    ports:
+        #5432 внутренний порт контейнера
+      - "5439:5432"
+    volumes:
+      - ./postgresdata:/var/lib/postgresql/data
