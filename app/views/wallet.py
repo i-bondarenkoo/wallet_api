@@ -2,7 +2,11 @@ from fastapi import APIRouter, Path, Depends, HTTPException, status
 from app.core.config import settings
 from app.crud.wallet import get_wallet_by_id_crud, get_all_wallet_id_crud
 
-from app.schemas.wallet import ResponseWalletSchema, ResponseWalletIds
+from app.schemas.wallet import (
+    ResponseWalletSchema,
+    ResponseWalletIds,
+    ResponseBalanceForWalletSchema,
+)
 from typing import Annotated
 import uuid
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -24,7 +28,7 @@ async def get_all_wallet_id(
 
 @router.get(
     "/{wallet_uuid}",
-    response_model=ResponseWalletSchema,
+    response_model=ResponseBalanceForWalletSchema,
 )
 async def get_wallet_by_id(
     wallet_uuid: Annotated[uuid.UUID, Path(description="Идентификатор кошелька")],
