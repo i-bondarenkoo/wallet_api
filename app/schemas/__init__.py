@@ -1,1 +1,5 @@
-from app.schemas.wallet import CreateWalletSchema, ResponseWalletSchema
+from app.schemas.wallet import (
+    CreateWalletSchema,
+    ResponseWalletSchema,
+    ResponseWalletIds,
+)

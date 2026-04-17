@@ -12,3 +12,8 @@ class ResponseWalletSchema(CreateWalletSchema):
     created_at: datetime
 
     model_config = ConfigDict(from_attributes=True)
+
+
+class ResponseWalletIds(BaseModel):
+    id: uuid.UUID
+    model_config = ConfigDict(from_attributes=True)

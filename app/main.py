@@ -1,9 +1,10 @@
 from fastapi import FastAPI
 import uvicorn
 from app.core.config import settings
+from app.views.wallet import router as wallet_router
 
 app = FastAPI()
-
+app.include_router(wallet_router)
 
 if __name__ == "__main__":
     uvicorn.run(
