@@ -24,7 +24,7 @@ class ResponseWalletIds(BaseModel):
     model_config = ConfigDict(from_attributes=True)
 
 
-class OperationType(Enum, str):
+class OperationType(str, Enum):
     DEPOSIT = "DEPOSIT"
     WITHDRAW = "WITHDRAW"
 
