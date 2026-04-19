@@ -11,3 +11,15 @@ services:
       - "5439:5432"
     volumes:
       - ./postgresdata:/var/lib/postgresql/data
+
+
+  test_db:
+    image: postgres
+    environment:
+      POSTGRES_DB: test_demo_wallet
+      POSTGRES_USER: test123
+      POSTGRES_PASSWORD: test123
+    ports:
+      - "5438:5432"
+    volumes:
+      - ./test_postgresdata:/var/lib/postgresql/data

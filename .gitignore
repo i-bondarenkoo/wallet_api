@@ -212,5 +212,6 @@ marimo/_static/
 marimo/_lsp/
 __marimo__/
 /postgresdata/
+/test_postgresdata/
 # Streamlit
 .streamlit/secrets.toml
