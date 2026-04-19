@@ -32,3 +32,7 @@ db_constructor = DatabaseConstructor(
     url=settings.db_url,
     echo=settings.db_echo,
 )
+test_db_constructor = DatabaseConstructor(
+    url=settings.test_db_url,
+    echo=settings.db_echo,
+)
