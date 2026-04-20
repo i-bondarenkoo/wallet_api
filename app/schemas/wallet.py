@@ -9,6 +9,7 @@ class CreateWalletSchema(BaseModel):
 
 
 class ResponseBalanceForWalletSchema(CreateWalletSchema):
+    id: uuid.UUID
     model_config = ConfigDict(from_attributes=True)
 
 
