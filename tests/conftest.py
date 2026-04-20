@@ -47,10 +47,10 @@ async def client():
 @pytest_asyncio.fixture(scope="function")
 async def override_get_session():
     async with test_db_constructor.session_factory() as session:
-        # try:
-        yield session
-    # finally:
-    #     await session.close()
+        try:
+            yield session
+        finally:
+            await session.rollback()
 
 
 @pytest_asyncio.fixture(scope="function", autouse=True)
@@ -109,7 +109,7 @@ def make_data_withdraw():
     return data
 
 
-@pytest_asyncio.fixture(autouse=True)
+@pytest_asyncio.fixture(autouse=True, scope="function")
 async def clean_db():
     """
     Очищает все таблицы тестовой БД после каждого теста.
