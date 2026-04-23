@@ -30,7 +30,7 @@ async def edit_wallet_balance_crud(
         current_wallet.balance += data_in.amount
     elif data_in.operation_type == OperationType.WITHDRAW:
         if current_wallet.balance - data_in.amount < 0:
-            await session.rollback()
+
             return False
         current_wallet.balance -= data_in.amount
     await session.commit()

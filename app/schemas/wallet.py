@@ -1,11 +1,11 @@
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel, ConfigDict, Field
 from datetime import datetime
 import uuid
 from enum import Enum
 
 
 class CreateWalletSchema(BaseModel):
-    balance: int
+    balance: int = Field(gt=0)
 
 
 class ResponseBalanceForWalletSchema(CreateWalletSchema):
@@ -32,4 +32,4 @@ class OperationType(str, Enum):
 
 class WalletOperationSchema(BaseModel):
     operation_type: OperationType
-    amount: int
+    amount: int = Field(gt=0)

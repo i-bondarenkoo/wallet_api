@@ -67,7 +67,7 @@ async def edit_wallet_balance(
             status_code=status.HTTP_404_NOT_FOUND,
             detail="Wallet for this uuid was not found",
         )
-    elif not current_wallet:
+    elif current_wallet is False:
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
             detail="Not enough money in the balance",
